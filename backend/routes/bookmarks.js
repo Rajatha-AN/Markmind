@@ -1,0 +1,12 @@
+const router = require('express').Router();
+const auth = require('../middleware/auth');
+const c = require('../controllers/bookmarkController');
+router.use(auth);
+router.get('/', c.getAll);
+router.post('/', c.create);
+router.get('/graph', c.getGraph);
+router.get('/:id', c.getOne);
+router.put('/:id', c.update);
+router.delete('/:id', c.remove);
+router.get('/:id/related', c.related);
+module.exports = router;
